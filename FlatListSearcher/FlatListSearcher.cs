@@ -51,9 +51,6 @@ namespace FlatListSearcher
         {
             var result = new List<T>();
             var index = source.FindIndex(findIndex);
-            var skip = source.Skip(index + 1);
-            var takeWhile = skip.TakeWhile(s => s.Level > source[index].Level);
-            var where = takeWhile.Where(s => s.Level == source[index].Level + 1);
             foreach (var item in source.Skip(index + 1)
                 .TakeWhile(s => s.Level > source[index].Level)
                 .Where(s => s.Level == source[index].Level + 1))
